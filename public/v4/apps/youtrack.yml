@@ -1,0 +1,23 @@
+captainVersion: 4
+services:
+    $$cap_appname-youtrack:
+        image: jetbrains/youtrack:2025.2.93511
+        volumes:
+            - $$cap_appname-youtrack-data:/opt/youtrack/data
+            - $$cap_appname-youtrack-logs:/opt/youtrack/logs
+            - $$cap_appname-youtrack-backup:/opt/youtrack/backups
+            - $$cap_appname-youtrack-conf:/opt/youtrack/conf
+        restart: always
+caproverOneClickApp:
+    variables:
+    instructions:
+        start: >-
+            Install youtrack
+        end: >-
+            YouTrack is deployed and available as $$cap_appname-youtrack.
+
+            IMPORTANT: It will take up to 2 minutes for YouTrack to be ready. Before that, you might see a 502 error page.
+    displayName: (MTK) YouTrack
+    isOfficial: true
+    description: This will create a YouTrack instance.
+    documentation: ''
